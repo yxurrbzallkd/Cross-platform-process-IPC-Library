@@ -1,0 +1,29 @@
+           CPU0       CPU1       CPU2       CPU3       CPU4       CPU5       CPU6       CPU7       
+  8:          0          0          0          0          0          0          0          0   IO-APIC   8-edge      rtc0
+  9:        263          0          0          0          0          0          0          0   IO-APIC   9-fasteoi   acpi
+ 24:          0          0          1          0          0          0          0          0  Hyper-V PCIe MSI 1073741824-edge      virtio0-config
+ 25:          0          0          0         12          0          0          0          0  Hyper-V PCIe MSI 1073741825-edge      virtio0-hiprio
+ 26:          0          0          0          0        110          0          0          0  Hyper-V PCIe MSI 1073741826-edge      virtio0-requests.0
+ 27:          0          0          0          0          0          0          0          0  Hyper-V PCIe MSI -939524096-edge      virtio1-config
+ 28:          0          0          0          0          0          0      46499          0  Hyper-V PCIe MSI -939524095-edge      virtio1-requests
+ 29:          0          0          0          0          0          0          0          0  Hyper-V PCIe MSI 1476395008-edge      virtio2-config
+ 30:     684254          0          0          0          0          0          0          0  Hyper-V PCIe MSI 1476395009-edge      virtio2-requests
+ 31:          0          0          0          0          0          0          0          0  Hyper-V PCIe MSI -939524096-edge      virtio3-config
+ 32:          0          0          0          0          0          0          0          0  Hyper-V PCIe MSI -939524095-edge      virtio3-requests
+NMI:          0          0          0          0          0          0          0          0   Non-maskable interrupts
+LOC:          0          0          0          0          0          0          0          0   Local timer interrupts
+SPU:          0          0          0          0          0          0          0          0   Spurious interrupts
+PMI:          0          0          0          0          0          0          0          0   Performance monitoring interrupts
+IWI:          0          0          0          0          0          0          0          0   IRQ work interrupts
+RTR:          0          0          0          0          0          0          0          0   APIC ICR read retries
+RES:     183909     185957     310074     248865     346438     199460     304504     184524   Rescheduling interrupts
+CAL:      15333       7869       5221       7018       3870       4687       7544       4016   Function call interrupts
+TLB:          0          0          0          0          0          0          0          0   TLB shootdowns
+HYP:     150399       9493        422        332        403        527        390        573   Hypervisor callback interrupts
+HRE:          0          0          0          0          0          0          0          0   Hyper-V reenlightenment interrupts
+HVS:     134407      89748     143705      78548     130813      81324     128835      49881   Hyper-V stimer0 interrupts
+ERR:          0
+MIS:          0
+PIN:          0          0          0          0          0          0          0          0   Posted-interrupt notification event
+NPI:          0          0          0          0          0          0          0          0   Nested posted-interrupt event
+PIW:          0          0          0          0          0          0          0          0   Posted-interrupt wakeup event

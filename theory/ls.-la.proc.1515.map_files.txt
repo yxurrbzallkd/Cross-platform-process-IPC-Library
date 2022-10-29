@@ -1,0 +1,47 @@
+total 0
+dr-x------ 2 diana diana  0 Oct 27 17:09 .
+dr-xr-xr-x 9 diana diana  0 Oct 27 17:07 ..
+lr-------- 1 diana diana 64 Oct 27 17:14 55b8c2fd7000-55b8c3004000 -> /usr/bin/bash
+lr-------- 1 diana diana 64 Oct 27 17:14 55b8c3004000-55b8c30b5000 -> /usr/bin/bash
+lr-------- 1 diana diana 64 Oct 27 17:14 55b8c30b5000-55b8c30ec000 -> /usr/bin/bash
+lr-------- 1 diana diana 64 Oct 27 17:14 55b8c30ec000-55b8c30f0000 -> /usr/bin/bash
+lr-------- 1 diana diana 64 Oct 27 17:14 55b8c30f0000-55b8c30f9000 -> /usr/bin/bash
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e287000-7fca7e28a000 -> /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e28a000-7fca7e291000 -> /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e291000-7fca7e293000 -> /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e293000-7fca7e294000 -> /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e294000-7fca7e295000 -> /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e2b1000-7fca7e2e3000 -> /usr/lib/locale/C.UTF-8/LC_CTYPE
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e2e3000-7fca7e456000 -> /usr/lib/locale/C.UTF-8/LC_COLLATE
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e456000-7fca7e73c000 -> /usr/lib/locale/locale-archive
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e73f000-7fca7e761000 -> /usr/lib/x86_64-linux-gnu/libc-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e761000-7fca7e8d9000 -> /usr/lib/x86_64-linux-gnu/libc-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e8d9000-7fca7e927000 -> /usr/lib/x86_64-linux-gnu/libc-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e927000-7fca7e92b000 -> /usr/lib/x86_64-linux-gnu/libc-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e92b000-7fca7e92d000 -> /usr/lib/x86_64-linux-gnu/libc-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e931000-7fca7e932000 -> /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e932000-7fca7e934000 -> /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e934000-7fca7e935000 -> /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e935000-7fca7e936000 -> /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e936000-7fca7e937000 -> /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e937000-7fca7e945000 -> /usr/lib/x86_64-linux-gnu/libtinfo.so.6.2
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e945000-7fca7e954000 -> /usr/lib/x86_64-linux-gnu/libtinfo.so.6.2
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e954000-7fca7e962000 -> /usr/lib/x86_64-linux-gnu/libtinfo.so.6.2
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e962000-7fca7e966000 -> /usr/lib/x86_64-linux-gnu/libtinfo.so.6.2
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e966000-7fca7e967000 -> /usr/lib/x86_64-linux-gnu/libtinfo.so.6.2
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e96f000-7fca7e970000 -> /usr/lib/locale/C.UTF-8/LC_NUMERIC
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e970000-7fca7e971000 -> /usr/lib/locale/C.UTF-8/LC_TIME
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e971000-7fca7e972000 -> /usr/lib/locale/C.UTF-8/LC_MONETARY
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e972000-7fca7e973000 -> /usr/lib/locale/C.UTF-8/LC_MESSAGES/SYS_LC_MESSAGES
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e973000-7fca7e974000 -> /usr/lib/locale/C.UTF-8/LC_PAPER
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e974000-7fca7e975000 -> /usr/lib/locale/C.UTF-8/LC_NAME
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e975000-7fca7e976000 -> /usr/lib/locale/C.UTF-8/LC_ADDRESS
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e976000-7fca7e977000 -> /usr/lib/locale/C.UTF-8/LC_TELEPHONE
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e977000-7fca7e978000 -> /usr/lib/locale/C.UTF-8/LC_MEASUREMENT
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e978000-7fca7e97f000 -> /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e97f000-7fca7e980000 -> /usr/lib/x86_64-linux-gnu/ld-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e980000-7fca7e9a3000 -> /usr/lib/x86_64-linux-gnu/ld-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e9a3000-7fca7e9ab000 -> /usr/lib/x86_64-linux-gnu/ld-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e9ab000-7fca7e9ac000 -> /usr/lib/locale/C.UTF-8/LC_IDENTIFICATION
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e9ac000-7fca7e9ad000 -> /usr/lib/x86_64-linux-gnu/ld-2.31.so
+lr-------- 1 diana diana 64 Oct 27 17:14 7fca7e9ad000-7fca7e9ae000 -> /usr/lib/x86_64-linux-gnu/ld-2.31.so
