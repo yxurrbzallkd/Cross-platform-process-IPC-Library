@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 			cout << "pipe failed" << endl;
 			return 1;
 		}
-		if (fork()==0) {
+		if (fork() != 0) {
 			cout << "parent process receiving" << argv[i] << endl;
 			close(pipefd[1]);
 			while (true) {

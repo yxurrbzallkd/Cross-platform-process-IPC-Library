@@ -40,7 +40,11 @@ typedef struct _PROCESS_INFORMATION {
   DWORD  dwProcessId; // process id, used to identify a process
   DWORD  dwThreadId; // a value used to identify a thread
 } PROCESS_INFORMATION, *PPROCESS_INFORMATION, *LPPROCESS_INFORMATION;
-// !!! if the functino succeeds, call CloseHandle to close hProcess and hThread handles, otherwise when child process exits, the system cannot clean up the process structures for the child process, because the parent process still has open handles to the child process
+/* 
+if the function succeeds, call CloseHandle to close hProcess and hThread handles,
+otherwise when child process exits, the system cannot clean up the process structures for the child process, 
+because the parent process still has open handles to the child process
+*/
 ```
 
 ```c++
@@ -70,7 +74,7 @@ typedef struct _STARTUPINFOA {
 [more on ```HANDLE```s in Windows and their difference to Unix file descriptors](http://lackingrhoticity.blogspot.com/2015/05/passing-fds-handles-between-processes.html)
 
 Short summary:
-- fd is an index in fd table - ```int``s
+- fd is an index in fd table - ```int```s
 - HANDLE is ```typedef```ed to to ```void *```, but really a 32 bit index
 - HANDLE is NOT a pointer into the process's address space
 - fd object is what fd number maps to. User code never seees fd objects diretly
@@ -80,7 +84,7 @@ Short summary:
 - On Windows, we have ```DuplicateHandle()``` - it allows to modify another process's handle table.
 - On Unix, process fd table is private to the process
 
-#### Sending a handle to another process
+#### Sending a handle\FD to another process
 - To send a HANDLE to another process on Windows
 	1. call ```DuplicateHandle()``` (need the destinations process handle) - returns a handle number indexing into the destination's handle table
 	2. sender must send the handle number to the destination - using ```WriteFile()``` - sends a message via a pipe
@@ -102,4 +106,67 @@ I only remembered 2, and copied the third one, because it is important, but feel
 For even more, see this post: https://stackoverflow.com/questions/62731834/is-there-a-unix-domain-socket-analog-on-windows
 It is very interesting
 
+# Code Differences
 
+```c++
+// Linux
+int pipefd[2];
+pipe(pipefd);
+if (fork() == 0)
+  child_stuff()
+else
+  parent_stuff()
+```
+
+```C++
+//Windows
+void CreateChildProcess()
+// Create a child process that uses the previously created pipes for STDIN and STDOUT.
+{ 
+   TCHAR szCmdline[]=TEXT("child");
+   PROCESS_INFORMATION piProcInfo; 
+   STARTUPINFO siStartInfo;
+   BOOL bSuccess = FALSE; 
+// Set up members of the PROCESS_INFORMATION structure. 
+   ZeroMemory( &piProcInfo, sizeof(PROCESS_INFORMATION) );
+// Set up members of the STARTUPINFO structure. 
+// This structure specifies the STDIN and STDOUT handles for redirection.
+   ZeroMemory( &siStartInfo, sizeof(STARTUPINFO) );
+   siStartInfo.cb = sizeof(STARTUPINFO); 
+   siStartInfo.hStdError = g_hChildStd_OUT_Wr;
+   siStartInfo.hStdOutput = g_hChildStd_OUT_Wr;
+   siStartInfo.hStdInput = g_hChildStd_IN_Rd;
+   siStartInfo.dwFlags |= STARTF_USESTDHANDLES;
+// Create the child process. 
+   cout << "CreateProcess" << endl;
+   bSuccess = CreateProcess(NULL, 
+      szCmdline,     // command line 
+      NULL,          // process security attributes 
+      NULL,          // primary thread security attributes 
+      TRUE,          // handles are inherited 
+      0,             // creation flags 
+      NULL,          // use parent's environment 
+      NULL,          // use parent's current directory 
+      &siStartInfo,  // STARTUPINFO pointer 
+      &piProcInfo);  // receives PROCESS_INFORMATION 
+   
+   // If an error occurs, exit the application. 
+   if ( ! bSuccess ) 
+      ErrorExit(TEXT("CreateProcess"));
+   else 
+   {
+      // Close handles to the child process and its primary thread.
+      // Some applications might keep these handles to monitor the status
+      // of the child process, for example. 
+
+      CloseHandle(piProcInfo.hProcess);
+      CloseHandle(piProcInfo.hThread);
+      
+      // Close handles to the stdin and stdout pipes no longer needed by the child process.
+      // If they are not explicitly closed, there is no way to recognize that the child process has ended.
+      
+      CloseHandle(g_hChildStd_OUT_Wr);
+      CloseHandle(g_hChildStd_IN_Rd);
+   }
+}
+```
