@@ -11,16 +11,19 @@
 
 # Installations
 
+0) Windows 11 - host OS, WSL2 with Ubuntu 20.04 for Linux
 1) MINIX - with VirtualBox
 2) FreeBSD - ran into a problem - it keeps rebooting after installation...
 3) Boost.process and Boost.interprocess - look in experiments-and-demos/boost. Managed to compile a little program with a bunch of imports.
 
 # Theory
 
-Goal: 
-1. remember the theory behind [**process**](#what-is-a-process):
-	1. creation of processes (```fork``` \ ```exec``` \ ```spawn```)
-	2. structure of a process (! on different OS's)
+This is mostly an educational project, so I intend to illustrate various important theoretical concepts while making it.
+
+1. remember the theory behind **process**:
+	1. creation of processes on Linux (```fork``` \ ```exec``` \ ```spawn```)
+	2. creation of processes on Windows
+	3. structure of a process (! on different OS's)
 2. remember the theory behind [**IPC**](#how-to-ipc):
 	1. pipes
 	2. shared memory
@@ -32,13 +35,34 @@ Goal:
 3. research the [differences](#ipc-approaches) of processes and IPC in different OS's
 4. learn by [example](#how-others-did-it):
 	1. ```Boost.processes + Boost.Interprocess```
-	2.* other examples (if have enough time) 
-
-### What is a Process
+	2. Python ```multiprocess```
 
 
-## POSIX process
+### Creating processes
 
+[see this for Windows and Linux process creation](./experiments-and-demos/pipes/README.md)
+
+## How to IPC
+
+### Python examples
+
+[Python multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
+
+Will be filled soon...
+
+### Boost examples
+
+[Boost.process+Boost.Interprocess](https://www.boost.org/)
+
+[Boost examples directory](./experiments-and-demos/boost)
+
+# Unix vs WINDOWS
+
+[see this file. it is not much, but all i have so far](./experiments-and-demos/pipes/README.md)
+
+# Unix vs Windows vs MINIX? vs ?FreeBSD
+
+later
 
 ### Playing with processes from command line
 
@@ -179,26 +203,3 @@ init─┬─init───init───bash
      │                           └─sleep
      └─2*[{init}]
 ```
-
-# Theory
-
-will be filled with cool examples that really let you understand how everything happens under the hood
-
-## How to IPC
-
-### Python examples
-
-[Python multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
-
-Will be filled soon...
-
-### Boost examples
-
-[Boost.process+Boost.Interprocess](https://www.boost.org/)
-
-will be filled soon...
-
-# POSIX vs WINDOWS
-
-# POSIX vs Windows vs MINIX? vs ?FreeBSD
-

@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Diana/Documents/OneDrive/OS/project/experiments-and-demos/boost/src/main.cpp
+iostream
+-
+boost/filesystem.hpp
+-
+boost/regex.hpp
+-
+boost/program_options.hpp
+-
+boost/process.hpp
+-
+boost/interprocess/shared_memory_object.hpp
+-
+boost/interprocess/mapped_region.hpp
+-
+
