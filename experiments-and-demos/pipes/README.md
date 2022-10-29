@@ -1,6 +1,6 @@
 # Purpose
 
-the point of this document is to illustrates the differences of windows and linux code.
+the point of this document is to illustrates the differences of windows and linux
 
 # The Program
 
