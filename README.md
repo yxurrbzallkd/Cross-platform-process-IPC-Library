@@ -1,3 +1,5 @@
+# PIPC project
+
 # Project Description
 
 > Create a cross-platform c++ class library for working with processes and IPC (inter process communication). An analog of boost.processes + boost.interprocess. Requirement: has to support at least 3 OS: Windows, LINUX and one of MacOS/MINIX/FreeBSD, has to contatin **examples**, **tests***, **basic documentation***.
