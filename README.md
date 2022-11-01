@@ -24,14 +24,13 @@ This is mostly an educational project, so I intend to illustrate various importa
 	1. creation of processes on Linux (```fork``` \ ```exec``` \ ```spawn```)
 	2. creation of processes on Windows
 	3. structure of a process (! on different OS's)
-2. remember the theory behind [**IPC**](#how-to-ipc):
-	1. pipes
-	2. shared memory
-	3. mmap-files
-	4. sockets
-	5. locks
-	6. mutexes
-	7. etc.
+2. remember the theory behind [**IPC**](#how-to-ipc) (+ IPC vs ITC):
+	1. file
+	2. socket
+	3. message queue
+	4. pipe
+	5. shared memory
+	6. semaphore (vs mutex)
 3. research the [differences](#ipc-approaches) of processes and IPC in different OS's
 4. learn by [example](#how-others-did-it):
 	1. ```Boost.processes + Boost.Interprocess```
