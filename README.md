@@ -30,14 +30,15 @@ This is mostly an educational project, so I intend to illustrate various importa
 	3. message queue
 	4. pipe
 	5. shared memory
-	6. semaphore (vs mutex)
+	6. semaphore\ mutex
+	7. etc.
 3. research the [differences](#ipc-approaches) of processes and IPC in different OS's
 4. learn by [example](#how-others-did-it):
 	1. ```Boost.processes + Boost.Interprocess```
 	2. Python ```multiprocess```
 
 
-### Creating processes
+## Creating processes
 
 [see this for Windows and Linux process creation](./experiments-and-demos/pipes/README.md)
 
@@ -57,7 +58,54 @@ Will be filled soon...
 
 # Unix vs WINDOWS
 
-[see this file. it is not much, but all i have so far](./experiments-and-demos/pipes/README.md)
+[see this file.](./experiments-and-demos/pipes/README.md)
+
+also
+
+- Pipes
+	 * a file
+	 * limited memory
+	 * synchronous
+	 * FIFO
+	 * write to one end, read from another
+
+||UNIX|Windows|
+|-|-|-|
+|||named and unnamed (anonymous) pipes|
+||5120K|programmer definedbuffer size|
+|creating|fds=pipe()|CreatePipe() \ CreateNamedPipe()|
+|writing|write(fd_w, buf, bufsize)|WriteFile(pipeWHandle ...)|
+|reading|read(fd_r, buf, bufsize)|ReadFile(pipeReadHandle ...)|
+|sharing|fork() solves all problems|Inheritance - child process inherits the handle \ client calls CallNamedPipe(), ConnectNamedPipe()|
+|destroying|close file descriptors|FlushFileBuffers(), DisconnectNamedPipe(), CloseHandle()|
+|usage|create pipe - fork - close reading\writing end of the pipe in child\parent|create a pipe, share it, use it|
+
+- Shared memory
+
+*Shared memory allows multiple processes to share virtual memory space so changes made by one
+process are instantly reflected in other processes*
+
+||Unix|Windows|
+|creating|shmget() - returns a key - create a new shared segment or gain access to an existing segment (creation does not grant you access to it just yet)|create a shared segment, a kernel object with certain size, map this file-mapping object into process's address space. CreateFileMapping()|
+|controlling|shmctl() - takes a key (returned by shmget()), a command, a buffer with struct of parameters for the command|-|
+|shared memory operations|shmat()\shmdt() - attach to\detach from segment (shared memory is mapped into the calling processes data segment \ reverses). can use mmap() - does not require specialized calls like previous version|OpenFileMapping() - returns a HANDLE to a file-mapping kernel object, MapViewOfFile() - get pointer to memory the memory that the handle represents, UnmapViewOfFile()|
+
+- Mailslots - WINDOWS ONLY!
+	- one-way communication
+	- a pseudofile
+	- incoming messages are appended to the mailslot and saved until they are read by another process
+
+- Sockets
+	 * bi-directional channel
+	 * create a socket - map to local address - listen toclient requests, and client: create a socket, find the server, communicate
+
+Differences are complicated...
+
+
+[see more here](https://cs.brown.edu/people/slewando/files/IPCWinNTUNIX.pdf)
+
+- RPC - remote procedure call
+
 
 # Unix vs Windows vs MINIX? vs ?FreeBSD
 
