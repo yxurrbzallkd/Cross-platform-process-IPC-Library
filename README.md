@@ -73,7 +73,7 @@ also
 |-|-|-|
 |||named and unnamed (anonymous) pipes|
 ||5120K|programmer definedbuffer size|
-|creating|fds=pipe()|CreatePipe() \ CreateNamedPipe()|
+|creating|pipe(where_to_store_file_descriptors)|CreatePipe(handles and stuff) \ CreateNamedPipe()|
 |writing|write(fd_w, buf, bufsize)|WriteFile(pipeWHandle ...)|
 |reading|read(fd_r, buf, bufsize)|ReadFile(pipeReadHandle ...)|
 |sharing|fork() solves all problems|Inheritance - child process inherits the handle \ client calls CallNamedPipe(), ConnectNamedPipe()|
@@ -86,6 +86,7 @@ also
 process are instantly reflected in other processes*
 
 ||Unix|Windows|
+|-|-|-|
 |creating|shmget() - returns a key - create a new shared segment or gain access to an existing segment (creation does not grant you access to it just yet)|create a shared segment, a kernel object with certain size, map this file-mapping object into process's address space. CreateFileMapping()|
 |controlling|shmctl() - takes a key (returned by shmget()), a command, a buffer with struct of parameters for the command|-|
 |shared memory operations|shmat()\shmdt() - attach to\detach from segment (shared memory is mapped into the calling processes data segment \ reverses). can use mmap() - does not require specialized calls like previous version|OpenFileMapping() - returns a HANDLE to a file-mapping kernel object, MapViewOfFile() - get pointer to memory the memory that the handle represents, UnmapViewOfFile()|

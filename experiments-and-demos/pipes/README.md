@@ -73,6 +73,8 @@ typedef struct _STARTUPINFOA {
 
 [more on ```HANDLE```s in Windows and their difference to Unix file descriptors](http://lackingrhoticity.blogspot.com/2015/05/passing-fds-handles-between-processes.html)
 
+[and here](https://stackoverflow.com/questions/902967/what-is-a-windows-handle)
+
 Short summary:
 - fd is an index in fd table - ```int```s
 - HANDLE is ```typedef```ed to to ```void *```, but really a 32 bit index
@@ -113,8 +115,10 @@ It is very interesting
 int pipefd[2];
 pipe(pipefd);
 if (fork() == 0)
+  close(pipefd[0])
   child_stuff()
 else
+  close(pipefd[1])
   parent_stuff()
 ```
 

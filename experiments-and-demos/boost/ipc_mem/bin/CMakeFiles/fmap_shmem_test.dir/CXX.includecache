@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Diana/Documents/OneDrive/OS/project/repo/experiments-and-demos/boost/ipc_mem/src/fmap_shmem_test.cpp
+iostream
+-
+boost/filesystem.hpp
+-
+boost/regex.hpp
+-
+boost/program_options.hpp
+-
+boost/process.hpp
+-
+boost/interprocess/shared_memory_object.hpp
+-
+boost/interprocess/mapped_region.hpp
+-
+

@@ -1,0 +1,5 @@
+/mnt/c/Users/Diana/Documents/OneDrive/OS/project/repo/experiments-and-demos/boost/ipc_mem/bin/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Diana/Documents/OneDrive/OS/project/repo/experiments-and-demos/boost/ipc_mem/bin/CMakeFiles/shmem_managed_test.dir
+/mnt/c/Users/Diana/Documents/OneDrive/OS/project/repo/experiments-and-demos/boost/ipc_mem/bin/CMakeFiles/fmap_shmem_test.dir
+/mnt/c/Users/Diana/Documents/OneDrive/OS/project/repo/experiments-and-demos/boost/ipc_mem/bin/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Diana/Documents/OneDrive/OS/project/repo/experiments-and-demos/boost/ipc_mem/bin/CMakeFiles/shmem_test.dir

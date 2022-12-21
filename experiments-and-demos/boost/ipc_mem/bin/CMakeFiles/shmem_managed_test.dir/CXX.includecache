@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Diana/Documents/OneDrive/OS/project/repo/experiments-and-demos/boost/ipc_mem/src/shmem_managed_test.cpp
+boost/interprocess/managed_shared_memory.hpp
+-
+boost/interprocess/containers/vector.hpp
+-
+boost/interprocess/allocators/allocator.hpp
+-
+string
+-
+cstdlib
+-
+

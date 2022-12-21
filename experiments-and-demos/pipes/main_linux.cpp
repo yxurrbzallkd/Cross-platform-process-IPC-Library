@@ -20,7 +20,12 @@ int main(int argc, char* argv[]) {
 			cout << "pipe failed" << endl;
 			return 1;
 		}
-		if (fork() != 0) {
+		pid_t pid = fork();
+		if (pid < 0) {
+			cout << "fork failed" << endl;
+			return -1;
+		}
+		if (pid > 0) {
 			cout << "parent process receiving" << argv[i] << endl;
 			close(pipefd[1]);
 			while (true) {
@@ -28,6 +33,7 @@ int main(int argc, char* argv[]) {
 					break;
 				cout << buf << endl;
 			}
+			close(pipefd[0]);
 		} else {
 			cout << "child process sending" << argv[i] << endl;
 			int fd = open(argv[i], R_OK);
@@ -42,6 +48,7 @@ int main(int argc, char* argv[]) {
 					break;
 				write(pipefd[1], buf, n);
 			}
+			close(pipefd[1]);
 		}
 	}
 	return 0;
