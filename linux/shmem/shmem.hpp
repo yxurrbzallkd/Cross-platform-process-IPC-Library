@@ -50,7 +50,7 @@ namespace pipc {
 				return SUCCESS;
 			}
 
-			int write(const char* buf, size_t offset) {
+			int write_shm(const char* buf, size_t offset) {
 				if (!issetup)
 					return SHM_ERROR & NOT_SETUP;
 				if (offset+strlen(buf) > file_size) // no space
@@ -61,7 +61,7 @@ namespace pipc {
 				return SUCCESS;
 			}
 
-			int read(char* buf, size_t n, size_t offset) {
+			int read_shm(char* buf, size_t n, size_t offset) {
 				if (!issetup)
 					return SHM_ERROR & NOT_SETUP;
 				/*if (strlen(buf) < n) {
@@ -74,7 +74,7 @@ namespace pipc {
 				return SUCCESS;
 			}
 
-			int resize(size_t new_size) {
+			int resize_shm(size_t new_size) {
 				if (!issetup)
 					return SHM_ERROR & NOT_SETUP;
 				if (ftruncate(sfd, new_size) < 0)
@@ -92,9 +92,10 @@ namespace pipc {
 				return SUCCESS;
 			}
 
-			int unlink() {
+			int unlink_shm() {
 				if (shm_unlink(sname) < 0)
 					return SHM_ERROR & FAILED_TO_UNLINK;
+				issetup = false;
 				return SUCCESS;
 			}
 
@@ -103,7 +104,7 @@ namespace pipc {
 				//	shm_unlink(sname);
 				if (map != NULL)
 					munmap(map, file_size);
-				if (sfd < 0)
+				if (!(sfd < 0))
 					close(sfd);
 			}
 	};
