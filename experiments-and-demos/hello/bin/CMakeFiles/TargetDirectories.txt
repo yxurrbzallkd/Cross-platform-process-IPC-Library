@@ -1,3 +1,0 @@
-C:/Users/Diana/Documents/OneDrive/OS/project/experiments-and-demos/bin/CMakeFiles/Hello.dir
-C:/Users/Diana/Documents/OneDrive/OS/project/experiments-and-demos/bin/CMakeFiles/ALL_BUILD.dir
-C:/Users/Diana/Documents/OneDrive/OS/project/experiments-and-demos/bin/CMakeFiles/ZERO_CHECK.dir
