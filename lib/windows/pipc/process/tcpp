@@ -1,0 +1,67 @@
+bool look_for_file(TCHAR* windir, const TCHAR* program, TCHAR* path) {
+	WIN32_FIND_DATA ffd;
+	HANDLE hFind = INVALID_HANDLE_VALUE;
+	hFind = FindFirstFile(windir, &ffd);
+	std::cout << "first: " << ffd.cFileName << std::endl;
+
+	if (INVALID_HANDLE_VALUE == hFind) {
+		std::cout << "FindFirstFile failed" << std::endl;
+		return false;
+	}
+	
+	/*while (FindNextFile(hFind, &ffd) != 0) {
+		if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+			std::wcout << "directory" << path << std::endl;
+			
+		} else {
+			std::wcout << path << std::endl;
+			if (ffd.cFileName == program) {
+				path = ffd.cFileName;
+				return true;
+			}
+		}
+	}*/
+	do
+	{
+		if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+		{
+			if ( (ffd.cFileName != L".") && (ffd.cFileName != L"..") ) {
+				TCHAR buf[MAX_PATH];
+				StringCchPrintf(buf, MAX_PATH, L"%ws\\%ws", windir, ffd.cFileName);
+				
+				_tprintf(TEXT("  %s	<DIR>\n"), buf);
+				bool out = look_for_file(buf, program, path);
+				if (out) return true;
+			}
+		}
+		else
+		{
+			_tprintf(TEXT("  %s\n"), ffd.cFileName);
+			if (ffd.cFileName == program) {
+				path = ffd.cFileName;
+				return true;
+			}
+		}
+	}
+	while (FindNextFile(hFind, &ffd) != 0);
+	DWORD dwError = GetLastError();
+	if (dwError != ERROR_NO_MORE_FILES) 
+	{
+		std::cout << "FindFirstFile failed" << std::endl;
+		return false;
+	}
+	FindClose(hFind);
+	return false;
+	/*for (auto n : fs::directory_iterator(windir)) {
+		if (fs::is_directory(n)) {
+			return look_for_file(n.path().generic_wstring(), program, path);
+			
+		} else {
+			if (n.path().generic_wstring().c_str() == (wchar_t*)program) {
+				program = n.path().generic_string();
+				return true;
+			}
+		}
+	}
+	return false;*/
+}

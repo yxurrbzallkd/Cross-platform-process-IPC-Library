@@ -10,28 +10,13 @@
 #include <sstream>
 #include <iterator>
 #include "vector_to_chararr.hpp"
-#include "errors_and_warnings.hpp"
+#include <pipc/errors_and_warnings.hpp>
 #include <typeinfo>   // operator typeid
 #include <bitset>
 
 #define BUF_SIZE 1024
 
 using namespace std;
-
-#define PROCESS_ERROR 32768    // 1000 0000  0000 0000
-#define FILE_ERROR 16384       // 0100 0000  0000 0000
-#define PIPE_ERROR 8192        // 0010 0000  0000 0000
-#define FORWARD_ERROR 4096     // 0001 0000  0000 0000
-#define ARGUMENT_ERROR 2048    // 0000 1000  0000 0000
-#define PROCESS_FAILED 256     // 0000 0001  1000 0000
-#define FAILED_TO_FORK 1       // 0000 0000  0000 0001
-#define FAILED_TO_OPEN 2       // 0000 0000  0000 0010
-#define INVALID_FD 4           // 0000 0000  0000 0100
-#define INVALID_FD_FLAG 8      // 0000 0000  0000 1000
-#define FAILED_TO_PIPE 16      // 0000 0000  0001 0000
-#define FAILED_TO_DUP 32       // 0000 0000  0010 0000
-#define FAILED_TO_CLOSE 64     // 0000 0000  0100 0000
-#define SUCCESS 0
 
 int open_file(string fpath, int flags) {
 	int fd = open(fpath.c_str(), flags);
