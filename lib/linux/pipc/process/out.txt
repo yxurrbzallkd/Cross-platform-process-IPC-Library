@@ -1,7 +1,0 @@
-coolProcess.cpp
-coolexec.hpp
-coolexec_test.cpp
-err.txt
-in.txt
-out.txt
-test

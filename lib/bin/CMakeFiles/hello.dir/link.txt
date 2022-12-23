@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/hello.dir/demo.cpp.o  -o hello 
